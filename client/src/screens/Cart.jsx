@@ -3,7 +3,7 @@ import Message from "../components/message";
 import { useDispatch, useSelector } from "react-redux";
 import "./productDetails.css";
 import { Link } from "react-router-dom";
-import { addCart,removeCart } from "../redux/actions/cartAction";
+import { addCart,removeCart } from "../redux/actions/cart/cartAction";
 import {
   ListGroup,
   Row,
@@ -43,7 +43,7 @@ const Cart = ({ match, location, history }) => {
   };
 
   const checkOut=()=>{
-    history.push('/login?redirect=shipping')
+    history.push(`/shipping`)
   }
 
   const Increment = (id) => {

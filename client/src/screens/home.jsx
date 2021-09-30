@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import Message from '../components/message'
-import { listProducts} from '../redux/actions/productAction'
+import { listProducts} from '../redux/actions/product/productAction'
 
 import { Row, Col,Spinner } from "react-bootstrap";
 import ProductScreen from "./productscreen";

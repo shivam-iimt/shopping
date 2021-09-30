@@ -1,4 +1,4 @@
-import {PRODUCT_LIST_FAILS,PRODUCT_LIST_REQUEST,PRODUCT_LIST_SUCCESS} from '../constants/productConstant'
+import {PRODUCT_LIST_FAILS,PRODUCT_LIST_REQUEST,PRODUCT_LIST_SUCCESS} from '../../constants/productConstant'
  
 export const productListReducer=(state={products:[]},action)=>{
 switch (action.type){

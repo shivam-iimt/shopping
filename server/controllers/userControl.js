@@ -19,31 +19,27 @@ const authController = asyncHandler(async (req, res) =>  {
 
 
   const registerUser=asyncHandler(async (req, res) =>  { 
-    const {name,email,phone,password,cpassword}=req.body;
+    const {name,email,password}=req.body;
     const userExist= await User.findOne({email})
     if(userExist){
     res.status(400)
     throw new Error("User Already Exist")
     }
-    if(password===cpassword){
-    const user= await User.create({name,email,phone,password})
+
+    const user= await User.create({name,email,password})
     if(user){
     res.status(201).json({
         _id:user._id,
         name:user.name,
         email:user.email,
-        phone:user.phone,
+        
 
         
     })}
     else{
         throw new Error("Something Went Wrong")
     }
-  }
-  else{
-    res.status(401);
-    throw new Error("Password should be same")
-  }})
+  })
 
   const getUserProfile = asyncHandler(async (req, res) =>  { 
     const user= await User.findById(req.user._id)
@@ -61,4 +57,32 @@ const authController = asyncHandler(async (req, res) =>  {
         }
    })
 
-  module.exports={authController, getUserProfile,registerUser}
+
+const updateUserProfile=asyncHandler(async(req,res)=>{
+    const user=await User.findById(req.user._id)
+    if(user){
+        user.name=req.body.name||user.name
+        user.email=req.body.email||user.email
+        if(req.body.password){
+            user.password=req.body.password
+        }
+        const updateUser= await user.save()
+        res.json({
+            _id:updateUser._id,
+            name:updateUser.name,
+            email:updateUser.email,
+            isAdmin:updateUser.isAdmin,
+            token:generateToken(updateUser._id)
+            
+        })
+        
+
+    }
+    else{
+        res.status(404)
+        throw new Error('user not find')
+    }
+})
+
+
+  module.exports={authController, getUserProfile,registerUser,updateUserProfile}

@@ -8,6 +8,8 @@ const products = require("./data/products");
 const connectDB = require("./config/config");
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
+const orderRoutes = require('./routes/orderRoutes')
+
 const PORT = process.env.PORT||5000;
 //connecting to mongodb database
 const app = express();
@@ -20,6 +22,7 @@ app.get("/", (req, res) => {
 app.use(errorHandler); 
 app.use("/api", productRoutes);  
 app.use("/api/user", userRoutes);  
+app.use("/api/user", orderRoutes);  
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
 });

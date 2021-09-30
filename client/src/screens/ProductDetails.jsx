@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Message from "../components/message";
 import { useDispatch, useSelector } from "react-redux";
 import "./productDetails.css";
-import { singleProduct } from "../redux/actions/singleProductAction";
+import { singleProduct } from "../redux/actions/product/singleProductAction";
 import {
   ListGroup,
   Row,

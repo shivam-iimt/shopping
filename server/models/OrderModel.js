@@ -3,7 +3,7 @@ const User = require("./UserModel");
 
 const orderSchema = mongoose.Schema(
   {
-    User: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: User,
@@ -26,7 +26,7 @@ const orderSchema = mongoose.Schema(
           type: Number,
           required: true,
         },
-        Product: {
+        product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
           ref: "Product",
@@ -42,18 +42,18 @@ const orderSchema = mongoose.Schema(
         type: String,
         required: true,
       },
-      postalCode: {
+      postalcode: {
         type: String,
         required: true,
       },
-      coumtry: {
+      country: {
         type: String,
         required: true,
       },
     },
-    payment: {
+    paymentMethod: {
       type: String,
-      required: true,
+      // required: true,
     },
     paymentResult: {
       id: { type: String },
@@ -89,7 +89,7 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: false,
     },
-    DeliveredAt: {
+    deliveredAt: {
       type: Date,
     },
   },

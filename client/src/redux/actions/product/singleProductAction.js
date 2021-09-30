@@ -3,7 +3,7 @@ import {
   SINGLE_PRODUCT_FAILS,
   SINGLE_PRODUCT_REQUEST,
   SINGLE_PRODUCT_SUCCESS,
-} from "../constants/singleProductConstant";
+} from "../../constants/singleProductConstant";
 export const singleProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: SINGLE_PRODUCT_REQUEST });

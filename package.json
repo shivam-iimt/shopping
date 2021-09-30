@@ -20,7 +20,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "npm start --prefix backend",
+    "server": "nodemon server/server.js",
     "frontend": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run frontend\" ",
     "data:import": "node backend/seeder.js",

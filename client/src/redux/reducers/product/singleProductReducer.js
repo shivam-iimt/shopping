@@ -2,7 +2,7 @@ import {
   SINGLE_PRODUCT_FAILS,
   SINGLE_PRODUCT_REQUEST,
   SINGLE_PRODUCT_SUCCESS,
-} from "../constants/singleProductConstant";
+} from "../../constants/singleProductConstant";
 
 export const singleProductReducer = (
   state = { product: { reviews: [] } },
